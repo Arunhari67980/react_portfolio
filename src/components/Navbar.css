@@ -1,0 +1,127 @@
+.header {
+    position: fixed;
+    width: 100%;
+    background-color: rgba(10, 10, 20, 0.95);
+    padding: 20px 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header.scrolled {
+    background-color: var(--card-bg);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+}
+
+nav {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 100px;
+}
+
+nav ul li a {
+    color: var(--neon-cyan);
+    text-decoration: none;
+    font-weight: 300;
+    font-size: 1.1em;
+    position: relative;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    text-shadow: 0 0 5px var(--neon-cyan);
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: -8px;
+    left: 0;
+    background-color: var(--neon-magenta);
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after,
+nav ul li a.hover::after {
+    width: 100%;
+}
+
+nav ul li a:hover,
+nav ul li a.hover {
+    color: var(--neon-magenta);
+    text-shadow: 0 0 10px var(--neon-magenta);
+}
+
+#hamburger {
+    display: none;
+    font-size: 2em;
+    background: none;
+    border: none;
+    color: var(--neon-cyan);
+    cursor: pointer;
+    z-index: 1001;
+    transition: color 0.3s ease;
+}
+
+#hamburger:hover {
+    color: var(--neon-magenta);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    nav {
+        padding: 0 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        padding: 0 20px;
+        position: relative;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--card-bg);
+        padding: 20px 0;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    nav ul li a {
+        font-size: 1.2em;
+        padding: 10px;
+        display: block;
+    }
+
+    #hamburger {
+        display: block;
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul li a {
+        font-size: 1em;
+    }
+}

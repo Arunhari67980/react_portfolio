@@ -1,0 +1,69 @@
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  background-color: var(--bg-color);
+}
+
+.hero-content {
+  z-index: 1;
+}
+
+.hero-content h1 {
+  font-size: 4rem;
+  color: var(--primary-color);
+  text-shadow: 0 0 10px var(--neon-cyan);
+  animation: glitch 2s linear infinite;
+}
+
+.typing-text {
+  font-size: 1.5rem;
+  color: var(--text-color);
+  margin: 1rem 0;
+  white-space: nowrap; /* Keeps text on one line */
+  overflow: hidden; /* Hides text beyond the animated width */
+  width: 39ch; /* Matches the text length (39 characters) */
+  animation: typing 4s steps(39, end) forwards; /* Runs once, stays visible */
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background-color: var(--accent-color);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 10px var(--neon-magenta);
+}
+
+.cta-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px var(--neon-magenta);
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 39ch; } /* Matches the text length */
+}
+
+@keyframes glitch {
+  2%, 64% { transform: translate(2px, 0); }
+  4%, 60% { transform: translate(-2px, 0); }
+  62% { transform: translate(0, 0); }
+}
+
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  .typing-text {
+    font-size: 1.2rem;
+    width: 39ch; /* Ensure consistent width */
+  }
+}
